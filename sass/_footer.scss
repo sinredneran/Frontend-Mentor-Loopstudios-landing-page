@@ -1,0 +1,146 @@
+.footer {
+  background: $black;
+  padding: calc(9.75rem / 3) 9.75rem;
+  color: $white;
+
+  display: flex;
+  justify-content: space-between;
+
+  @include mobile(){
+    padding: 0 1rem;
+    flex-direction: column;
+  }
+  &--div1 {
+    width: 40%;
+
+    @include mobile(){
+      width: 100%;
+      text-align: center;
+
+      & img{
+        margin: 2rem 0;
+      }
+    }
+
+    &--lists {
+      margin-top: 2rem;
+
+      display: flex;
+      list-style: none;
+      justify-content: space-between;
+      
+      @include mobile(){
+        margin: 0;
+        flex-direction: column;
+
+        & li:not(:last-child){
+          margin-bottom: 1.5rem;
+        }
+
+        & li:last-child{
+          margin-bottom: 3rem;
+        }
+      }
+      & a {
+        position: relative;
+
+        color: $white;
+        text-decoration: none;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -50%;
+          left: 25%;
+
+          display: block;
+          width: 50%;
+          height: 3px;
+
+          transition: background-color 0.3s;
+        }
+        &:hover::after {
+          background-color: $white;
+        }
+      }
+    }
+  }
+
+
+  &--div2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    @include mobile(){
+      align-items: center;
+    }
+    & .socials {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+
+      a {
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -50%;
+          left: 25%;
+
+          display: block;
+          width: 50%;
+          height: 3px;
+
+          transition: background-color 0.3s;
+        }
+        &:hover::after {
+          background-color: $white;
+        }
+      }
+      & a ion-icon {
+        color: white;
+        transition: color 0.3s;
+      }
+      & #fb:hover {
+        color: #4267b2;
+      }
+      & #twt:hover {
+        color: #1da1f2;
+      }
+      & #pnt:hover {
+        color: #e60023;
+      }
+      & #inst:hover {
+        color: #dd2a7b;
+      }
+    }
+    & p {
+      color: $dark-gray;
+      @include mobile(){
+        margin: 1rem 0;
+      }
+    }
+  }
+}
+
+.attribution {
+  text-align: center;
+  color: $white;
+
+  background: #000;
+  & a {
+    color: lightblue;
+    text-decoration: none;
+    transition: color 0.3s;
+    &:hover {
+      color: salmon;
+    }
+  }
+  & .profile {
+    color: salmon;
+    &:hover {
+      color: lightblue;
+    }
+  }
+}

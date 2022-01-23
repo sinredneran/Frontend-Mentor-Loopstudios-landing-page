@@ -1,0 +1,10 @@
+$very-dark-gray: hsl(0, 0%, 41%);
+$white : white;
+$dark-gray: hsl(0, 0%, 55%);
+$black: black;
+
+@mixin mobile {
+    @media screen and (max-width: 1100px) {
+        @content;
+    }
+}

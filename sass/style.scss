@@ -1,0 +1,38 @@
+@import '_reset.scss', './_variables.scss', '_header.scss', '_main.scss', '_main2.scss', './_footer.scss' ;
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300&display=swap');
+html{
+    font-family: 'Alata', sans-serif; // normal font // 400
+    // font-family: 'Josefin Sans', sans-serif;  // light font for headings //300 
+    font-size: 16px;
+}
+body{
+    max-width: 3048px;
+    margin: auto;
+    
+    @include mobile(){
+        overflow-x: hidden;
+    }
+    background: linear-gradient(#bb62cc,#982e8a,rebeccapurple,#3e1d6f);
+}
+.heading{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+
+    line-height: 1;
+    
+}
+.mobile{
+    display: none !important;
+}
+@include mobile(){
+    .desktop{
+        display: none !important;
+    }
+    .mobile{
+        display: block !important;
+    }
+}
+.noScroll{
+ overflow-y: hidden;   
+}

@@ -1,0 +1,166 @@
+.header {
+  background-color: rgba(0, 0, 0, 0.4);
+  background-image: url("../images/desktop/image-hero.jpg");
+  @include mobile() {
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("../images/mobile/image-hero.jpg");
+  }
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+
+  background-blend-mode: multiply;
+
+  padding: 4.1em 8em;
+  @include mobile() {
+    padding: 2.1em 1em 0.1em;
+  }
+  &--navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & .logo {
+      z-index: 20;
+    }
+    & #menuToggle {
+      width: 35%;
+
+      & .nav-lists {
+        width: 100%;
+
+        display: flex;
+        justify-content: space-between;
+
+        color: $white;
+        list-style: none;
+        @include mobile() {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 2rem;
+
+          width: 0;
+          position: absolute;
+          inset: 0;
+          // left: 100%;
+          z-index: 10;
+          background: #000;
+          transition: width 0.2s;
+
+          font-size: 2rem;
+          font-family: "Josefin Sans", sans-serif;
+          text-transform: uppercase;
+        }
+
+        &--item {
+          @include mobile() {
+            margin-left: 1rem;
+            display: none;
+          }
+          & a {
+            position: relative;
+            text-decoration: none;
+            color: white;
+
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: -50%;
+              left: 25%;
+
+              display: block;
+              width: 50%;
+              height: 3px;
+
+              transition: background-color 0.3s;
+
+              @include mobile() {
+                left: 0;
+                width: 100%;
+              }
+            }
+            &:hover::after {
+              background-color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /************************************** HAMBURGER SETTING OF NAV-LISTS ********************************/
+  #menuToggle {
+    // position: relative;
+    @include mobile() {
+      width: auto;
+    }
+  }
+  #menuToggle input {
+    position: absolute;
+    display: none;
+
+    width: 25px;
+    height: 25px;
+
+    opacity: 0;
+    z-index: 20;
+    @include mobile() {
+      display: block;
+    }
+    &:checked ~ .nav-lists {
+      display: flex;
+      // left: 0;
+      width: 100%;
+
+      overflow-y: scroll;
+
+    }
+    &:checked ~ .hamburger span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 6px);
+    }
+    &:checked ~ .hamburger span:nth-child(2) {
+      width: 0;
+    }
+    &:checked ~ .hamburger span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -6px);
+    }
+  }
+  .hamburger {
+    display: none;
+    @include mobile() {
+      display: block;
+      position: relative;
+      z-index: 18;
+    }
+    & span {
+      display: block;
+      width: 25px;
+      height: 5px;
+      background: $white;
+      transform-origin: center;
+
+      transition: transform 0.3s;
+      &:nth-child(2) {
+        transition: width 0.3s;
+      }
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+  /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ HAMBURGER SETTING OF NAV-LISTS ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+  &--heading {
+    color: $white;
+    font-size: 4.5rem;
+    width: 55%;
+    margin: 8.2rem 0 5.2rem;
+    padding: 2.6rem 2.6rem 1.6rem;
+    @include mobile() {
+      font-size: 2.5rem;
+      padding: 1.7rem 1.75rem 1.2rem;
+      margin: 13rem 0;
+      width: 100%;
+    }
+    border: 3px solid $white;
+  }
+}
